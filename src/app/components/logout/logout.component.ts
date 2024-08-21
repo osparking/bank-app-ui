@@ -16,6 +16,7 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit(): void {
     window.sessionStorage.setItem("userdetails","");
+    window.sessionStorage.setItem("Authorization","");
     this.router.navigate(['/login']);
   }
 
