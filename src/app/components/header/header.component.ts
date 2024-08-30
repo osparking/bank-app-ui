@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
       
     }
   }
-  
+
   public login() {
     this.keycloak.login();
   }
