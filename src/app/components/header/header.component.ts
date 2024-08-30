@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user.model';
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakProfile } from 'keycloak-js';
 
 @Component({
   selector: 'app-header',
@@ -18,6 +20,15 @@ export class HeaderComponent implements OnInit {
     if(sessionStorage.getItem('userdetails')){
       this.user = JSON.parse(sessionStorage.getItem('userdetails')!);
     }
+  }
+  
+  public login() {
+    this.keycloak.login();
+  }
+
+  public logout() {
+    let redirectURI: string = "http://localhost:4200/home";
+    this.keycloak.logout(redirectURI);
   }
 
 }
